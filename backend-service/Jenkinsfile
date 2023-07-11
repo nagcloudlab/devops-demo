@@ -10,5 +10,12 @@ pipeline {
                 }
             }
         }
+        stage('Docker Build'){
+            steps{
+                dir("backed-service"){
+                    sh "docker build -t nagabhushanamn/backend-service:latest ."
+                }
+            }
+        }
     }
 }
