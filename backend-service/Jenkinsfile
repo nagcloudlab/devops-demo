@@ -24,9 +24,10 @@ pipeline {
                 }
             }
         }
-         stage('Kubernetes Deploy'){
+        stage('Kubernetes Deploy'){
             steps{
                 dir("backend-service"){
+                    sh "kubectl delete backend-service"
                     sh "kubectl apply -f k8s/backend-service-deployment.yml"
                     sh "kubectl apply -f k8s/backend-service-service.yml"
                 }
