@@ -17,5 +17,12 @@ pipeline {
                 }
             }
         }
+        stage('Docker Push'){
+            steps{
+                dir("backend-service"){
+                    sh "docker push nagabhushanamn/backend-service:latest"
+                }
+            }
+        }
     }
 }
