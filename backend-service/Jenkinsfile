@@ -24,5 +24,13 @@ pipeline {
                 }
             }
         }
+         stage('Kubernetes Deploy'){
+            steps{
+                dir("backend-service"){
+                    sh "kubectl apply -f backend-service-deployment.yml"
+                    sh "kubectl apply -f backend-service-service.yml"
+                }
+            }
+        }
     }
 }
