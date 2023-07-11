@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                dir("backed-service"){
+                dir("backend-service"){
                     sh "docker build -t nagabhushanamn/backend-service:latest ."
                 }
             }
